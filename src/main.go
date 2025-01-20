@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"os"
 )
@@ -31,4 +32,9 @@ func readPipe(r io.Reader) string {
 		res = scanner.Text()
 	}
 	return res
+}
+
+// TODO: make better logger
+func log(msg string) {
+	fmt.Printf("[rest] %s\n", msg)
 }
