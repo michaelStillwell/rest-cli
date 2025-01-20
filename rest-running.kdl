@@ -2,8 +2,7 @@ layout {
 	tab name="running" {
 		pane name="app" {
 			command "fish"
-			args "-c" "go run . \"http://duckduckgo.com\""
-			// args "-c" "go run . --url \"http://duckduckgo.com\""
+			args "-c" "cat test.json | go run ./src \"https://dummyjson.com/products/add --method=POST\""
 		}
 
 		pane size=1 borderless=true {
