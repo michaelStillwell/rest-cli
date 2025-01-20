@@ -1,0 +1,6 @@
+rest-cli
+	todo
+	doing
+	done
+		create cli that takes a url and makes a get request to it 
+

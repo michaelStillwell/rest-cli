@@ -1,0 +1,13 @@
+layout {
+	tab name="running" {
+		pane name="app" {
+			command "fish"
+			args "-c" "go run . \"http://duckduckgo.com\""
+			// args "-c" "go run . --url \"http://duckduckgo.com\""
+		}
+
+		pane size=1 borderless=true {
+			plugin location="compact-bar"
+		}
+	}
+}
