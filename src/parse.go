@@ -15,6 +15,10 @@ func parseArgs(args []string) (string, map[string]string) {
 	var single string
 	for _, arg := range args {
 		if !strings.HasPrefix(arg, "--") {
+			if single == "" {
+				single = arg
+			}
+
 			continue
 		}
 
@@ -23,10 +27,6 @@ func parseArgs(args []string) (string, map[string]string) {
 			f := strings.Split(a, "=")
 
 			res[f[0]] = f[1]
-		} else {
-			if single == "" {
-				single = arg
-			}
 		}
 	}
 
@@ -41,7 +41,7 @@ func parseBody(body []byte, contentType string) string {
 		var buffer bytes.Buffer
 		err := json.Indent(&buffer, body, "", "  ")
 		if err != nil {
-			fmt.Printf("client: error formatting json: %s\n", err)
+			fmt.Printf("error formatting json: %s\n", err)
 			os.Exit(1)
 		}
 		res = string(buffer.Bytes())
